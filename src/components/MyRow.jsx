@@ -41,17 +41,19 @@ class MyRow extends React.Component {
     render(){
        
         return (
+           
             <>
-                <div id="action" className="d-flex xyz">
-                    {
-                        this.state.movies.map(movie => (
-                        <div key={movie.imdbID} className="card " >
-                            <a href="hfh"><img src={movie.Poster} className="movie" alt="..."/></a>
-                          </div>
-                        ))
-                    }
-                </div>         
-            </>
+                {
+                    this.state.movies.map(movie => (
+                    <div className="col-3">
+                    <div key={movie.imdbID} className="card " >
+                        <a href="hfh"><img src={movie.Poster} className="movie" alt="..."/></a>
+                    </div>
+                    </div>
+                ))
+                }
+            </>        
+            
         )
     }
 }

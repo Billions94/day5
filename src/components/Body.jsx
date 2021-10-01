@@ -52,8 +52,9 @@ class Body extends React.Component {
             </div>
           </div>
             <Search />
+
           <h4 className="pt-4 mb-3">Action</h4>
-          <div>
+          <div id="action" className="d-flex">
             <MyRow query={"harry%20potter"} />
           </div>
 

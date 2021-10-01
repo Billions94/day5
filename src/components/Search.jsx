@@ -1,13 +1,15 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
-import MyRow from './MyRow'
+import Spinner from 'react-bootstrap/Spinner'
+// import FormControl from 'react-bootstrap/FormControl'
+
 
 class Search extends React.Component {
 
     state = {
         movies: [],
-        query: ''
+        query: '',
+    isLoading: false
     }
 
 
@@ -15,7 +17,7 @@ class Search extends React.Component {
        fetchMovie = async() => {
         
         try {
-
+            this.setState({isLoading: true})
             const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=1dcfbf0b&s=${this.state.query}`)
             const data = await response.json()
             console.log(this.props.query)
@@ -23,7 +25,8 @@ class Search extends React.Component {
 
                 console.log(`search data`, data)
                 this.setState({
-                    movies: data.Search
+                    movies: data.Search,
+                isLoading: false
                 })
                 console.log(`here is your  search data `, this.state.movies)
 
@@ -45,8 +48,7 @@ class Search extends React.Component {
         render(){
             return (
                 <>
-                    <div>
-                        <div>
+                        <div className="row">
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Control type="text" value={this.state.query} 
                                 onChange={(e) => this.setState({
@@ -55,13 +57,21 @@ class Search extends React.Component {
                                 onClick={()=> this.fetchMovie(this.state.query)}
                                 placeholder="Search movies" />
                             </Form.Group>
+                            {
+                            this.state.isLoading && <Spinner animation="border" variant="danger" />
+                            }
                         </div>
-                        {
+                    <div id="action" className="d-flex">
+                            {
                         this.state.movies && 
                         this.state.movies.map(movie => (
-                            <MyRow img={movie.Poster}  id={movie.Id}/>
+                            <div className="col-3">
+                            <div key={movie.imdbID} className="card " >
+                                <a href="hfh"><img src={movie.Poster} className="movie" alt="..."/></a>
+                            </div>
+                            </div>
                         ))
-                    }
+                            }
                     </div>
                 </>
             )
