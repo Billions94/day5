@@ -6,21 +6,25 @@ class MyRow extends React.Component {
 
     state = {
         movies: []
+        
     }
+
+    
 
      fetchMovie = async() => {
         
         try {
 
-            const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=1dcfbf0b&&s=${this.props.query}`)
+            const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=1dcfbf0b&s=${this.props.query}`)
             const data = await response.json()
+            console.log(this.props.query)
             if(response.ok){
 
                 console.log(`initial data`, data)
                 this.setState({
-                    row: data
+                    movies: data,
                 })
-                console.log(`here is your data `, movies)
+                console.log(`here is your data `, this.state.movies)
 
             } else {
                 console.log(`something went wrong`)
@@ -37,8 +41,9 @@ class MyRow extends React.Component {
     }
 
     render(){
+        console.log(this.state)
         return (
-                                    <>
+                    <>
                         <div className="container-fluid overflow-hidden py-5 pl-5">
                             {/*--genres*/}
                             <div className="row">
@@ -87,11 +92,11 @@ class MyRow extends React.Component {
                             <div id="action" className="d-flex xyz"></div>
                             {/* Watch it again */}
                                 {
-                                    // this.state.row.map(movie => (
-                                    // <div key={movie._id} class="card " >
-                                    //     <a href="backoffice.html?id=${movie._id}"><img src={movie.Poster} class=" movie " alt="..."/></a>
-                                    //   </div>
-                                    // ))
+                                    this.state.movies.map(movie => (
+                                    <div key={movie._id} class="card " >
+                                        <a href="backoffice.html?id=${movie._id}"><img src={movie.Title} class=" movie " alt="..."/></a>
+                                      </div>
+                                    ))
                                 }
                             <h4 className="pt-4 mb-3">Horror</h4>
                             <div id="horror" className="d-flex"></div>
