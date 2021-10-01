@@ -1,51 +1,8 @@
 import MyRow from "./MyRow";
 import React from "react";
+import Search from "./Search"
 
 class Body extends React.Component {
-
-    state = {
-        movies: []
-    }
-
-    filterBooks = (query) => {
-        let queryMovies = Movies.filter((movie) =>
-            movie.title.toLowerCase().includes(query.toLowerCase())
-       )
-       this.setState({ queryMovies });
-       }
-
-       fetchMovie = async(query) => {
-        
-        try {
-
-            const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=1dcfbf0b&s=${query}`)
-            const data = await response.json()
-            console.log(this.props.query)
-            if(response.ok){
-
-                console.log(`initial data`, data)
-                this.setState({
-                    movies: data.Search
-                })
-                console.log(`here is your data `, this.state.queryMovies)
-
-            } else {
-                console.log(`something went wrong`)
-            }
-
-        } catch (e) {
-            console.error(`ooops an error occured while fetching`, e)
-        }
-
-     }
-
-    // componentDidMount(){
-    //     this.fetchMovie()
-    // }
-
-
-    
-
 
     render() {
     return (
@@ -94,8 +51,7 @@ class Body extends React.Component {
               </button>
             </div>
           </div>
-          {/*Search        Bar*/}
-          <input type="text" placeholder="Search favorite movies" />
+            <Search />
           <h4 className="pt-4 mb-3">Action</h4>
           <div>
             <MyRow query={"harry%20potter"} />
