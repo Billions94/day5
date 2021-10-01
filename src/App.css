@@ -145,9 +145,7 @@ a {
 } */
 
 .movie {
-  height: 230px;
-  width: 280px;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .card {
