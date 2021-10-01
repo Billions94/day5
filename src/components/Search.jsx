@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
+import MyRow from './MyRow'
 
 class Search extends React.Component {
 
@@ -11,13 +12,13 @@ class Search extends React.Component {
 
 
 
-       fetchMovie = async(query) => {
+       fetchMovie = async() => {
         
         try {
 
-            const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=1dcfbf0b&s=${query}`)
+            const response = await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=1dcfbf0b&s=${this.state.query}`)
             const data = await response.json()
-            // console.log(this.props.query)
+            console.log(this.props.query)
             if(response.ok){
 
                 console.log(`search data`, data)
@@ -49,17 +50,16 @@ class Search extends React.Component {
                             <Form.Group controlId="formBasicEmail">
                                 <Form.Control type="text" value={this.state.query} 
                                 onChange={(e) => this.setState({
-                                    query: e.target.value.length > 3 &&
-                                    this.fetchMovie(this.state.query)
+                                    query: e.target.value                                    
                                 })}
+                                onClick={()=> this.fetchMovie(this.state.query)}
                                 placeholder="Search movies" />
                             </Form.Group>
                         </div>
                         {
+                        this.state.movies && 
                         this.state.movies.map(movie => (
-                        <div key={movie.imdbID} className="card " >
-                            <a href="ho"><img src={movie.Poster} className="movie" alt="..."/></a>
-                          </div>
+                            <MyRow img={movie.Poster}  id={movie.Id}/>
                         ))
                     }
                     </div>
