@@ -5,7 +5,7 @@ class MyRow extends React.Component {
     
 
     state = {
-        row: []
+        movies: []
     }
 
      fetchMovie = async() => {
@@ -20,8 +20,10 @@ class MyRow extends React.Component {
                 this.setState({
                     row: data
                 })
-                // console.log(`here is your data `, comments)
+                console.log(`here is your data `, movies)
 
+            } else {
+                console.log(`something went wrong`)
             }
 
         } catch (e) {
