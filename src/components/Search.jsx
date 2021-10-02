@@ -40,8 +40,8 @@ class Search extends React.Component {
   render() {
     return (
       <>
-        <div className="row">
-          <Form.Group controlId="formBasicEmail">
+        <div className="row ml-2">
+          <Form.Group className="form" controlId="formBasicEmail">
             <Form.Control
               type="text"
               value={this.state.query}

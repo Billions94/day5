@@ -1,3 +1,4 @@
+import { Form } from "react-bootstrap"
 
 
 
@@ -51,8 +52,9 @@ const MyNav = () => (
                 </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
+                    <Form.Control type="search" placeholder="Titles,people,genres" className="navSearch mr-1"/>
                 <div className="btn-group dropdown">
-                    <img className="logo" src="./assets/search.png" alt="" />
+                    <img className="logo" src="./assets/search.png"  alt="" />
                     <a
                     className="text-light nav-link dropdown-toggle"
                     href="vhvgh"
@@ -62,10 +64,10 @@ const MyNav = () => (
                     aria-haspopup="true"
                     aria-expanded="false"
                     >
-                    <span className="span mr-3">KIDS</span>
+                    <span className="span mr-3 text-light">Kids</span>
                     <span>
                         <img src="./assets/bell.png" width={18} className="mr-3" alt="" />{" "}
-                        <img src="./assets/kids_icon.png" width={25} alt=""/>
+                        <img src="./assets/kids_icon.png" width={32} height={32} alt=""/>
                     </span>
                     </a>
                     <div className="dropdown-menu">
