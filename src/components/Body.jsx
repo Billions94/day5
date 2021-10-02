@@ -55,17 +55,17 @@ class Body extends React.Component {
 
           <h4 className="pt-4 mb-3 text-left">Action</h4>
           <div id="action" className="d-flex">
-            <MyRow query={"harry%20potter"} />
+            <MyRow query={"action"} />
           </div>
 
           <h4 className="pt-4 mb-3 text-left">Horror</h4>
           <div id="horror" className="d-flex">
-            <MyRow query={"batman"} />
+            <MyRow query={"horror"} />
           </div>
 
           <h4 className="pt-5 mb-3 text-left">Comedy</h4>
           <div id="comedy" className="d-flex">
-            <MyRow query={"spider"} />
+            <MyRow query={"comedy"} />
           </div>
         </div>
         {/*--footer*/}
