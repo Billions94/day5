@@ -53,17 +53,17 @@ class Body extends React.Component {
           </div>
             <Search />
 
-          <h4 className="pt-4 mb-3">Action</h4>
+          <h4 className="pt-4 mb-3 text-left">Action</h4>
           <div id="action" className="d-flex">
             <MyRow query={"harry%20potter"} />
           </div>
 
-          <h4 className="pt-4 mb-3">Horror</h4>
+          <h4 className="pt-4 mb-3 text-left">Horror</h4>
           <div id="horror" className="d-flex">
             <MyRow query={"batman"} />
           </div>
 
-          <h4 className="pt-5 mb-3">Comedy</h4>
+          <h4 className="pt-5 mb-3 text-left">Comedy</h4>
           <div id="comedy" className="d-flex">
             <MyRow query={"spider"} />
           </div>
